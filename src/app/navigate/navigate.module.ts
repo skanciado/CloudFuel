@@ -1,11 +1,12 @@
 import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Tab1Page } from './tab1.page';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavegatePage } from './navigate.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
-import { Tab1PageRoutingModule } from './tab1-routing.module';
+import { NavigatePageRoutingModule } from './navigate-routing.module';
 import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
@@ -13,10 +14,12 @@ import { GoogleMapsModule } from '@angular/google-maps';
     IonicModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     ExploreContainerComponentModule,
-    Tab1PageRoutingModule,
     GoogleMapsModule,
+    RouterModule.forChild([{ path: '', component: NavigatePageModule }]),
+    NavigatePageRoutingModule,
   ],
-  declarations: [Tab1Page],
+  declarations: [NavegatePage],
 })
-export class Tab1PageModule {}
+export class NavigatePageModule {}

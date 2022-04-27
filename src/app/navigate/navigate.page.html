@@ -1,0 +1,51 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 2</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-grid *ngIf="!search">
+    <ion-row>
+      <ion-col>
+        <ion-card class="animate__animated  animate__pulse">
+          <ion-card-header>
+            <ion-card-subtitle>Search Options</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <form>
+              <ion-item>
+
+                <ion-label position="floating">Origin </ion-label>
+                <ion-input type="text" name="o" [(ngModel)]="origin"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Destination</ion-label>
+                <ion-input type="text" name="d" [(ngModel)]="destination"></ion-input>
+              </ion-item>
+              <ion-button expand="full" (click)="searchFunction()">
+                <ion-icon slot="go" name="search"></ion-icon>
+                Go
+              </ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid id="main-screem">
+
+    <ion-row>
+
+      <ion-col size=12 [attr.size-lg]="search ? 8 : 12">
+        <google-map id="map" [width]="'100%'" height=" 100%">
+        </google-map>
+      </ion-col>
+      <ion-col size=12 size-lg="4" class="animate__animated  animate__pulse" *ngIf="search">
+
+        <div id="status2"></div>
+        <div id="status">Variables por definir</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
